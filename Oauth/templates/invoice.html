@@ -1,0 +1,10 @@
+{% extends 'index.html' %}
+{% block replace %}
+<form action="{{ url }}" method="post">
+        <table class="sinup" align="center" style="margin-left:auto;margin-right:auto;padding:10px;">
+            {{ form.as_table }}
+        </table><br><br>
+{% csrf_token %}
+    <input type="submit">
+</form>
+{% endblock %}

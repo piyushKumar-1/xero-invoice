@@ -1,0 +1,37 @@
+{% extends 'index.html' %}
+
+{% block replace %}
+
+    <h1>Add Contact Info</h1>
+    <select id="cont">
+        {% for i in contacts %}
+            <option value="{{i.ContactID}}">{{i.Name}}</option>
+        {% endfor %}
+
+        {% csrf_token %}
+    </select>
+    <input type="submit" onclick="search()">
+<script>
+    var sel = document.getElementById('cont');
+    console.log( sel.value );
+    function getSelectedOption(sel) {
+        var opt;
+        for ( var i = 0, len = sel.options.length; i < len; i++ ) {
+            opt = sel.options[i];
+            if ( opt.selected === true ) {
+                break;
+            }
+        }
+        return opt;
+    }
+    function search(){
+        var sel = document.getElementById('cont');
+        var opt = getSelectedOption(sel);
+        console.log( opt.value );
+        console.log( opt.text );
+        window.location.href="/addcontact/"+opt.value;
+    }
+
+
+</script>
+{% endblock %}

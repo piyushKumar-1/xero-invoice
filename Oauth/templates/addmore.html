@@ -1,0 +1,12 @@
+{% extends 'index.html' %}
+
+{% block replace %}
+<h1>Add Line Item</h1>
+<form action="/addline/" method="post">
+        <table class="sinup" align="center" style="margin-left:auto;margin-right:auto;padding:10px;">
+            {% csrf_token %}
+            {{ form.as_table }}
+        </table><br><br>
+    <input type="submit">
+</form>
+{% endblock %}
