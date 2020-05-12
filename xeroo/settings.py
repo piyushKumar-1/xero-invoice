@@ -53,6 +53,15 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'xeroo.urls'
 
+
+CACHES = {
+   'default': {
+      'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+      'LOCATION': 'my_table_name',
+   }
+}
+
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
